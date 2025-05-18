@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { globalContext } from "../context/Globalcontext";
-
+import { apiDocs,logo } from "../constants";
 const PokemonsView: React.FC = () => {
   const context = useContext(globalContext);
   if (!context) {
@@ -9,8 +9,8 @@ const PokemonsView: React.FC = () => {
   const { searchText, searchPokemon, setSearchText, loading, initialLoading, error, viewMode, pokemon, backToGrid, capitalize, getTypeColor, pokemonList } = context;
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-start p-4 bg-gray-50">
-      <a href="https://pokeapi.co/docs/v2" target="_blank" rel="noopener noreferrer">
-        <img src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png" alt="logo" width={200} height={200} />
+      <a href={apiDocs} target="_blank" rel="noopener noreferrer">
+        <img src={logo} alt="logo" width={200} height={200} />
       </a>
       <div className="max-w-6xl w-full flex flex-col items-center text-center space-y-6 p-6">
         <h1 className="text-4xl font-light text-gray-800">Pokédex</h1>

@@ -1,6 +1,7 @@
 import React, { useState, ReactNode, createContext, useEffect, useMemo } from 'react';
 import { ViewMode } from '../type';
 import { PokemonBasic, PokemonDetail, GlobalContextType } from '../type';
+import { apiPokemon } from '../constants';
 export const globalContext = createContext<GlobalContextType | undefined>(undefined);
 interface GlobalProps {
   children: ReactNode;
@@ -20,7 +21,7 @@ const GlobalContext: React.FC<GlobalProps> = ({ children }) => {
     const getInitialPokemon = async (): Promise<void> => {
       try {
         setInitialLoading(true);
-        const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100");
+        const response = await fetch(apiPokemon);
         const data = await response.json();
 
         // Obtener datos básicos de cada Pokémon
